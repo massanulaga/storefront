@@ -35,6 +35,7 @@
 	"pdp": {
 		"addToBag": "Lisää koriin",
 		"adding": "Lisätään…",
+		"inStock": "Varastossa",
 		"outOfStock": "Loppunut varastosta",
 		"selectOptions": "Valitse vaihtoehdot",
 		"buyBox": {

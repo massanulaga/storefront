@@ -35,6 +35,7 @@
 	"pdp": {
 		"addToBag": "Ajouter au panier",
 		"adding": "Ajout…",
+		"inStock": "En stock",
 		"outOfStock": "Rupture de stock",
 		"selectOptions": "Choisir les options",
 		"buyBox": {

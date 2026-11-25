@@ -3,7 +3,7 @@
 import { usePathname, useParams } from "next/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { LayoutGrid, Receipt, MapPin, Settings, ArrowLeft } from "lucide-react";
+import { LayoutGrid, Receipt, MapPin, Settings, ArrowLeft, Heart } from "lucide-react";
 import { LinkWithChannel } from "@/ui/atoms/link-with-channel";
 import { cn } from "@/lib/utils";
 import { LogoutButton } from "@/lib/auth/logout-button";
@@ -13,7 +13,7 @@ import { stripStorefrontPrefix } from "@/lib/storefront-path";
 
 const navItems: ReadonlyArray<{
 	href: string;
-	labelKey: "overview" | "orders" | "addresses" | "settings";
+	labelKey: "overview" | "orders" | "addresses" | "settings" | "wishlist";
 	icon: typeof LayoutGrid;
 	exact?: boolean;
 }> = [
@@ -21,6 +21,7 @@ const navItems: ReadonlyArray<{
 	{ href: accountRoutes.orders, labelKey: "orders", icon: Receipt },
 	{ href: accountRoutes.addresses, labelKey: "addresses", icon: MapPin },
 	{ href: accountRoutes.settings, labelKey: "settings", icon: Settings },
+	{ href: accountRoutes.wishlist, labelKey: "wishlist", icon: Heart },
 ];
 
 export function AccountNav() {
@@ -73,7 +74,7 @@ export function AccountNav() {
 			<nav
 				aria-label={t("ariaLabel")}
 				className={cn(
-					"bg-secondary/60 grid auto-cols-fr grid-flow-col gap-1 rounded-xl p-1",
+					"grid auto-cols-fr grid-flow-col gap-1 rounded-xl bg-secondary/60 p-1",
 					"md:flex md:flex-col md:gap-0.5 md:rounded-none md:bg-transparent md:p-0",
 				)}
 			>

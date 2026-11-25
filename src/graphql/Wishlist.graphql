@@ -1,0 +1,42 @@
+query WishlistItems {
+	wishlist {
+		id
+		createdAt
+		variant {
+			id
+			name
+		}
+		product {
+			id
+			name
+			slug
+			thumbnail(size: 256) {
+				url
+				alt
+			}
+		}
+	}
+}
+
+mutation WishlistItemAdd($variantId: ID!) {
+	wishlistItemAdd(variantId: $variantId) {
+		wishlistItem {
+			id
+		}
+		errors {
+			field
+			code
+			message
+		}
+	}
+}
+
+mutation WishlistItemRemove($variantId: ID!) {
+	wishlistItemRemove(variantId: $variantId) {
+		errors {
+			field
+			code
+			message
+		}
+	}
+}

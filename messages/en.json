@@ -33,6 +33,12 @@
 		}
 	},
 	"pdp": {
+		"wishlist": {
+			"save": "Save",
+			"saved": "Saved",
+			"savedNotice": "Saved to wishlist",
+			"updateFailed": "Could not update your wishlist. Try again."
+		},
 		"addToBag": "Add to bag",
 		"adding": "Adding...",
 		"outOfStock": "Out of stock",
@@ -154,6 +160,15 @@
 		}
 	},
 	"account": {
+		"wishlist": {
+			"title": "My wishlist",
+			"description": "Products you saved while shopping.",
+			"empty": "Your wishlist is empty.",
+			"remove": "Remove",
+			"removedNotice": "Item removed",
+			"updateFailed": "Could not update your wishlist. Try again.",
+			"signInRequired": "Sign in to use your wishlist."
+		},
 		"metadata": {
 			"loginTitle": "Sign In",
 			"loginDescription": "Sign in to your account to access your orders and saved addresses.",
@@ -301,7 +316,8 @@
 			"overview": "Overview",
 			"orders": "Orders",
 			"addresses": "Addresses",
-			"settings": "Settings"
+			"settings": "Settings",
+			"wishlist": "My wishlist"
 		},
 		"overview": {
 			"welcome": "Welcome back, {name}",

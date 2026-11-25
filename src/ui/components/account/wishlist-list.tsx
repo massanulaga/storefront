@@ -1,98 +1,106 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { removeWishlistItem } from "@/app/(storefront)/[locale]/[channel]/(main)/account/wishlist/actions";
-import { SaleorImage } from "@/ui/atoms/saleor-image";
+import { Heart, ShoppingBag, Trash2 } from "lucide-react";
+import { addVariantToCart } from "@/app/actions";
+import { bumpChromeVersion } from "@/lib/chrome-sync";
 import { LinkWithChannel } from "@/ui/atoms/link-with-channel";
 import { Button } from "@/ui/components/ui/button";
+import { removeWishlistItem } from "@/app/(storefront)/[locale]/[channel]/(main)/account/actions";
+import {
+	resolveAccountActionError,
+	type AccountActionResult,
+} from "@/ui/components/account/account-action-result";
 
-export interface WishlistEntry {
+export type WishlistRow = {
+	id: string;
+	name: string;
+	variantName: string | null;
 	variantId: string;
-	variantName: string;
-	productName: string;
 	productSlug: string;
-	thumbnail: { url: string; alt?: string | null } | null;
-}
+	savedOn: string;
+};
 
-export function WishlistList({ items: initialItems }: { items: WishlistEntry[] }) {
+export function WishlistList({ items }: { items: WishlistRow[] }) {
 	const t = useTranslations("account.wishlist");
-	const [items, setItems] = useState(initialItems);
-	const [notice, setNotice] = useState(false);
-	const [error, setError] = useState(false);
-	const [pendingVariantId, setPendingVariantId] = useState<string | null>(null);
-	const [, startTransition] = useTransition();
+	const tAccount = useTranslations("account");
+	const { locale, channel } = useParams<{ locale: string; channel: string }>();
+	const [isPending, startTransition] = useTransition();
+	const [error, setError] = useState<string | null>(null);
 
-	const remove = (variantId: string) => {
-		setPendingVariantId(variantId);
+	const handleRemove = (variantId: string) => {
+		setError(null);
 		startTransition(async () => {
-			const result = await removeWishlistItem(variantId);
-			setPendingVariantId(null);
-			if (result.success) {
-				setItems((current) => current.filter((item) => item.variantId !== variantId));
-				setError(false);
-				setNotice(true);
-			} else {
-				setError(true);
-				setNotice(false);
+			const result: AccountActionResult = await removeWishlistItem(variantId);
+			if (!result.success) {
+				setError(resolveAccountActionError(tAccount, result));
 			}
 		});
 	};
 
-	if (items.length === 0) {
-		return (
-			<p className="rounded-lg border border-dashed p-8 text-center text-muted-foreground">{t("empty")}</p>
-		);
-	}
+	const handleAddToCart = (variantId: string) => {
+		setError(null);
+		startTransition(async () => {
+			await addVariantToCart({ channel, localeSlug: locale, variantId });
+			bumpChromeVersion();
+		});
+	};
 
 	return (
 		<div className="space-y-4">
-			{notice && (
-				<p role="status" className="text-sm text-muted-foreground">
-					{t("removedNotice")}
-				</p>
-			)}
 			{error && (
 				<p role="alert" className="text-sm text-destructive">
-					{t("updateFailed")}
+					{error}
 				</p>
 			)}
 			<ul className="divide-y rounded-lg border">
 				{items.map((item) => (
-					<li key={item.variantId} className="flex items-center gap-4 p-4">
-						<div className="relative h-16 w-16 shrink-0 overflow-hidden rounded bg-muted">
-							{item.thumbnail && (
-								<SaleorImage
-									src={item.thumbnail.url}
-									alt={item.thumbnail.alt ?? ""}
-									sizes="64px"
-									className="object-cover"
-								/>
-							)}
-						</div>
-						<div className="min-w-0 flex-1">
-							<LinkWithChannel
-								href={`/products/${item.productSlug}`}
-								className="block truncate font-medium hover:underline"
-							>
-								{item.productName}
+					<li
+						key={item.id}
+						className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between"
+					>
+						<div className="min-w-0">
+							<LinkWithChannel href={`/products/${item.productSlug}`} className="font-medium hover:underline">
+								{item.name}
 							</LinkWithChannel>
-							{item.variantName !== item.productName && (
-								<p className="truncate text-sm text-muted-foreground">{item.variantName}</p>
-							)}
+							{item.variantName && <p className="text-sm text-muted-foreground">{item.variantName}</p>}
+							<p className="text-xs text-muted-foreground">{t("savedOn", { date: item.savedOn })}</p>
 						</div>
-						<Button
-							type="button"
-							variant="ghost"
-							size="sm"
-							disabled={pendingVariantId !== null}
-							onClick={() => remove(item.variantId)}
-						>
-							{t("remove")}
-						</Button>
+						<div className="flex gap-2">
+							<Button
+								variant="outline-solid"
+								size="sm"
+								disabled={isPending}
+								onClick={() => handleAddToCart(item.variantId)}
+							>
+								<ShoppingBag className="mr-2 h-4 w-4" />
+								{t("addToBag")}
+							</Button>
+							<Button
+								variant="outline-solid"
+								size="sm"
+								disabled={isPending}
+								onClick={() => handleRemove(item.variantId)}
+							>
+								<Trash2 className="mr-2 h-4 w-4" />
+								{t("remove")}
+							</Button>
+						</div>
 					</li>
 				))}
 			</ul>
+		</div>
+	);
+}
+
+export function WishlistEmpty({ title, message }: { title: string; message: string }) {
+	return (
+		<div className="flex flex-col items-center gap-2 rounded-lg border border-dashed p-8 text-center">
+			<Heart className="h-6 w-6 text-muted-foreground" />
+			<p className="font-medium">{title}</p>
+			<p className="text-sm text-muted-foreground">{message}</p>
 		</div>
 	);
 }

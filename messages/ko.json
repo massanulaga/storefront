@@ -237,7 +237,9 @@
 			"updateAddressFailed": "주소 업데이트에 실패했습니다",
 			"deleteAddressFailed": "주소 삭제에 실패했습니다",
 			"setDefaultAddressFailed": "기본 주소 설정에 실패했습니다",
-			"deleteAccountFailed": "계정 삭제 요청에 실패했습니다"
+			"deleteAccountFailed": "계정 삭제 요청에 실패했습니다",
+			"loadWishlistFailed": "위시리스트를 불러올 수 없습니다.",
+			"removeWishlistItemFailed": "이 상품을 삭제할 수 없습니다. 다시 시도해 주세요."
 		},
 		"login": {
 			"title": "다시 오신 것을 환영합니다",
@@ -292,7 +294,8 @@
 			"overview": "개요",
 			"orders": "주문",
 			"addresses": "주소",
-			"settings": "설정"
+			"settings": "설정",
+			"wishlist": "위시리스트"
 		},
 		"overview": {
 			"welcome": "다시 오신 것을 환영합니다, {name}님",
@@ -388,6 +391,15 @@
 		"unavailable": {
 			"title": "계정을 불러올 수 없습니다",
 			"body": "스토어를 일시적으로 사용할 수 없습니다. 페이지를 새로고침하거나 잠시 후 다시 시도해주세요."
+		},
+		"wishlist": {
+			"title": "내 위시리스트",
+			"empty": "위시리스트가 비어 있습니다.",
+			"emptyHint": "쇼핑 중에 저장한 상품이 여기에 표시됩니다.",
+			"savedOn": "{date} 저장됨",
+			"addToBag": "장바구니에 담기",
+			"remove": "삭제",
+			"signInRequired": "위시리스트를 보려면 로그인하세요."
 		}
 	},
 	"checkout": {

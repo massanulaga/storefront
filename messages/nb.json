@@ -246,7 +246,9 @@
 			"updateAddressFailed": "Kunne ikke oppdatere adresse",
 			"deleteAddressFailed": "Kunne ikke slette adresse",
 			"setDefaultAddressFailed": "Kunne ikke angi standardadresse",
-			"deleteAccountFailed": "Kunne ikke sende forespørsel om sletting av konto"
+			"deleteAccountFailed": "Kunne ikke sende forespørsel om sletting av konto",
+			"loadWishlistFailed": "Vi kunne ikke laste ønskelisten din.",
+			"removeWishlistItemFailed": "Vi kunne ikke fjerne denne varen. Prøv igjen."
 		},
 		"login": {
 			"title": "Velkommen tilbake",
@@ -301,7 +303,8 @@
 			"overview": "Oversikt",
 			"orders": "Bestillinger",
 			"addresses": "Adresser",
-			"settings": "Innstillinger"
+			"settings": "Innstillinger",
+			"wishlist": "Ønskeliste"
 		},
 		"overview": {
 			"welcome": "Velkommen tilbake, {name}",
@@ -397,6 +400,15 @@
 		"unavailable": {
 			"title": "Kunne ikke laste kontoen din",
 			"body": "Butikken er midlertidig utilgjengelig. Oppdater siden eller prøv igjen om litt."
+		},
+		"wishlist": {
+			"title": "Min ønskeliste",
+			"empty": "Ønskelisten din er tom.",
+			"emptyHint": "Produkter du lagrer mens du handler, vises her.",
+			"savedOn": "Lagret {date}",
+			"addToBag": "Legg i handlekurv",
+			"remove": "Fjern",
+			"signInRequired": "Logg inn for å se ønskelisten din."
 		}
 	},
 	"checkout": {

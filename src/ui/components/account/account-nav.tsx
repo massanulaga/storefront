@@ -3,7 +3,7 @@
 import { usePathname, useParams } from "next/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { LayoutGrid, Receipt, MapPin, Settings, ArrowLeft, Heart } from "lucide-react";
+import { LayoutGrid, Receipt, Heart, MapPin, Settings, ArrowLeft } from "lucide-react";
 import { LinkWithChannel } from "@/ui/atoms/link-with-channel";
 import { cn } from "@/lib/utils";
 import { LogoutButton } from "@/lib/auth/logout-button";
@@ -13,15 +13,15 @@ import { stripStorefrontPrefix } from "@/lib/storefront-path";
 
 const navItems: ReadonlyArray<{
 	href: string;
-	labelKey: "overview" | "orders" | "addresses" | "settings" | "wishlist";
+	labelKey: "overview" | "orders" | "wishlist" | "addresses" | "settings";
 	icon: typeof LayoutGrid;
 	exact?: boolean;
 }> = [
 	{ href: accountRoutes.overview, labelKey: "overview", icon: LayoutGrid, exact: true },
 	{ href: accountRoutes.orders, labelKey: "orders", icon: Receipt },
+	{ href: accountRoutes.wishlist, labelKey: "wishlist", icon: Heart },
 	{ href: accountRoutes.addresses, labelKey: "addresses", icon: MapPin },
 	{ href: accountRoutes.settings, labelKey: "settings", icon: Settings },
-	{ href: accountRoutes.wishlist, labelKey: "wishlist", icon: Heart },
 ];
 
 export function AccountNav() {

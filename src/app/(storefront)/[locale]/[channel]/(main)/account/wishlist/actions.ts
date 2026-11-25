@@ -1,6 +1,6 @@
 "use server";
 
-import { WishlistItemAddDocument, WishlistItemRemoveDocument } from "@/gql/graphql";
+import { WishlistItemAddDocument } from "@/gql/graphql";
 import { mutate } from "@/lib/saleor";
 import { getAccountAuthState } from "../get-current-user";
 
@@ -17,17 +17,6 @@ export async function addWishlistItem(variantId: string): Promise<WishlistAction
 
 	const result = await mutate(WishlistItemAddDocument, { variables: { variantId } });
 	if (!result.ok || result.data?.wishlistItemAdd?.errors?.length) {
-		return { success: false, reason: "failed" };
-	}
-	return { success: true };
-}
-
-export async function removeWishlistItem(variantId: string): Promise<WishlistActionResult> {
-	const signedOut = await requireSignedIn();
-	if (signedOut) return signedOut;
-
-	const result = await mutate(WishlistItemRemoveDocument, { variables: { variantId } });
-	if (!result.ok || result.data?.wishlistItemRemove?.errors?.length) {
 		return { success: false, reason: "failed" };
 	}
 	return { success: true };

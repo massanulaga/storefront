@@ -8,6 +8,8 @@ const removeWishlistItem = vi.fn();
 
 vi.mock("@/app/(storefront)/[locale]/[channel]/(main)/account/wishlist/actions", () => ({
 	addWishlistItem: (...args: unknown[]) => addWishlistItem(...args),
+}));
+vi.mock("@/app/(storefront)/[locale]/[channel]/(main)/account/actions", () => ({
 	removeWishlistItem: (...args: unknown[]) => removeWishlistItem(...args),
 }));
 vi.mock("next-intl", () => ({ useTranslations: () => (key: string) => key }));

@@ -10,7 +10,8 @@ export type AccountActionErrorKey =
 	| "updateAddressFailed"
 	| "deleteAddressFailed"
 	| "setDefaultAddressFailed"
-	| "deleteAccountFailed";
+	| "deleteAccountFailed"
+	| "removeWishlistItemFailed";
 
 export type AccountActionResult =
 	| { success: true }

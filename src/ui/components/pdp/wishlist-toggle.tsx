@@ -3,10 +3,8 @@
 import { useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
 import { Heart } from "lucide-react";
-import {
-	addWishlistItem,
-	removeWishlistItem,
-} from "@/app/(storefront)/[locale]/[channel]/(main)/account/wishlist/actions";
+import { removeWishlistItem } from "@/app/(storefront)/[locale]/[channel]/(main)/account/actions";
+import { addWishlistItem } from "@/app/(storefront)/[locale]/[channel]/(main)/account/wishlist/actions";
 import { Button } from "@/ui/components/ui/button";
 
 interface WishlistToggleProps {

@@ -6,17 +6,32 @@ vi.mock("next/cache", () => ({
 vi.mock("@/lib/saleor", () => ({
 	mutate: vi.fn(),
 }));
+vi.mock("./get-current-user", () => ({
+	getAccountAuthState: vi.fn(),
+}));
 
 import { mutate } from "@/lib/saleor";
+import { getAccountAuthState } from "./get-current-user";
 import { removeWishlistItem } from "./actions";
 
 const run = vi.mocked(mutate);
+const authState = vi.mocked(getAccountAuthState);
 
 beforeEach(() => {
 	vi.clearAllMocks();
+	authState.mockResolvedValue({ status: "authenticated", user: {} } as never);
 });
 
 describe("removeWishlistItem", () => {
+	it("refuses a signed-out caller without calling the mutation", async () => {
+		authState.mockResolvedValue({ status: "guest" } as never);
+
+		const result = await removeWishlistItem("variant-1");
+
+		expect(run).not.toHaveBeenCalled();
+		expect(result).toEqual({ success: false, errorKey: "removeWishlistItemFailed" });
+	});
+
 	it("sends only the variant id, so the customer cannot target another user's item", async () => {
 		run.mockResolvedValue({
 			ok: true,

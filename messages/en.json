@@ -77,6 +77,12 @@
 			"previous": "Previous image",
 			"next": "Next image",
 			"counter": "{current} / {total}"
+		},
+		"wishlist": {
+			"save": "Save",
+			"saved": "Saved",
+			"savedNotice": "Saved to wishlist",
+			"updateFailed": "Couldn't save. Your wishlist didn't update. Check your connection and try again."
 		}
 	},
 	"plp": {

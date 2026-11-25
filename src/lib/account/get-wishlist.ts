@@ -18,3 +18,10 @@ export async function getCurrentUserWishlist() {
 
 	return { status: "ok" as const, items: result.data.wishlist };
 }
+
+/** Variant IDs the signed-in customer has saved. Null when the read fails. */
+export async function getSavedVariantIds(): Promise<string[] | null> {
+	const wishlist = await getCurrentUserWishlist();
+	if (wishlist.status !== "ok") return null;
+	return wishlist.items.map((item) => item.variant.id);
+}

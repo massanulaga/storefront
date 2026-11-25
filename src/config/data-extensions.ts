@@ -38,6 +38,7 @@ export const dataExtensions: {
 	webhookScopes: {},
 	operations: {
 		WishlistItems: { access: "session", auth: "session" },
+		WishlistItemAdd: { access: "mutate", auth: "session" },
 		WishlistItemRemove: { access: "mutate", auth: "session" },
 	},
 };

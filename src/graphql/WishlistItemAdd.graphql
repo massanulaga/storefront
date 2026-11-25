@@ -1,0 +1,12 @@
+mutation WishlistItemAdd($variantId: ID!) {
+	wishlistItemAdd(variantId: $variantId) {
+		wishlistItem {
+			id
+		}
+		errors {
+			field
+			code
+			message
+		}
+	}
+}

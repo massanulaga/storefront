@@ -246,7 +246,9 @@
 			"updateAddressFailed": "Nie udało się zaktualizować adresu",
 			"deleteAddressFailed": "Nie udało się usunąć adresu",
 			"setDefaultAddressFailed": "Nie udało się ustawić domyślnego adresu",
-			"deleteAccountFailed": "Nie udało się złożyć wniosku o usunięcie konta"
+			"deleteAccountFailed": "Nie udało się złożyć wniosku o usunięcie konta",
+			"loadWishlistFailed": "Nie udało się wczytać Twojej listy życzeń.",
+			"removeWishlistItemFailed": "Nie udało się usunąć tego produktu. Spróbuj ponownie."
 		},
 		"login": {
 			"title": "Witaj ponownie",
@@ -301,7 +303,8 @@
 			"overview": "Przegląd",
 			"orders": "Zamówienia",
 			"addresses": "Adresy",
-			"settings": "Ustawienia"
+			"settings": "Ustawienia",
+			"wishlist": "Lista życzeń"
 		},
 		"overview": {
 			"welcome": "Witaj ponownie, {name}",
@@ -397,6 +400,15 @@
 		"unavailable": {
 			"title": "Nie udało się załadować konta",
 			"body": "Sklep jest tymczasowo niedostępny. Odśwież stronę lub spróbuj ponownie za chwilę."
+		},
+		"wishlist": {
+			"title": "Moja lista życzeń",
+			"empty": "Twoja lista życzeń jest pusta.",
+			"emptyHint": "Produkty, które zapiszesz podczas zakupów, pojawią się tutaj.",
+			"savedOn": "Zapisano {date}",
+			"addToBag": "Dodaj do koszyka",
+			"remove": "Usuń",
+			"signInRequired": "Zaloguj się, aby zobaczyć swoją listę życzeń."
 		}
 	},
 	"checkout": {

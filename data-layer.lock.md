@@ -29,6 +29,7 @@ Rows are keyed by file and enclosing function, not line, so formatting does not 
 | mutate           | PasswordChangeDocument                  | —                                             | src/app/(storefront)/[locale]/[channel]/(main)/account/actions.ts › changePassword            |
 | mutate           | AccountAddressCreateDocument            | —                                             | src/app/(storefront)/[locale]/[channel]/(main)/account/actions.ts › createAddress             |
 | mutate           | AccountAddressDeleteDocument            | —                                             | src/app/(storefront)/[locale]/[channel]/(main)/account/actions.ts › deleteAddress             |
+| mutate           | WishlistItemRemoveDocument              | —                                             | src/app/(storefront)/[locale]/[channel]/(main)/account/actions.ts › removeWishlistItem        |
 | mutate           | AccountRequestDeletionDocument          | —                                             | src/app/(storefront)/[locale]/[channel]/(main)/account/actions.ts › requestAccountDeletion    |
 | mutate           | AccountSetDefaultAddressDocument        | —                                             | src/app/(storefront)/[locale]/[channel]/(main)/account/actions.ts › setDefaultAddress         |
 | mutate           | AccountAddressUpdateDocument            | —                                             | src/app/(storefront)/[locale]/[channel]/(main)/account/actions.ts › updateAddress             |
@@ -47,6 +48,7 @@ Rows are keyed by file and enclosing function, not line, so formatting does not 
 | liveQuery        | orderQueryDocument                      | —                                             | src/checkout/lib/server/fetch-order.ts › fetchOrderOnServer                                   |
 | sessionQuery     | CurrentUserOrdersPaginatedDocument      | —                                             | src/lib/account/get-orders.ts › getCurrentUserOrders                                          |
 | sessionQuery     | OrderByNumberDocument                   | —                                             | src/lib/account/get-orders.ts › getOrdersForNumberLookup                                      |
+| sessionQuery     | WishlistItemsDocument                   | —                                             | src/lib/account/get-wishlist.ts › getCurrentUserWishlist                                      |
 | rawMutation      | —                                       | —                                             | src/lib/auth/confirm-account.ts › confirmAccountWithToken                                     |
 | sessionQuery     | operation                               | —                                             | src/lib/auth/fetch-authenticated-user.ts › fetchAuthenticatedUserIfSession                    |
 | cachedQuery      | ProductListByCategoryDocument           | CACHE_PROFILES.categories                     | src/lib/catalog/get-category-data.ts › getCategoryData.fetchCategory                          |

@@ -246,7 +246,9 @@
 			"updateAddressFailed": "Osoitteen päivittäminen epäonnistui",
 			"deleteAddressFailed": "Osoitteen poistaminen epäonnistui",
 			"setDefaultAddressFailed": "Oletusosoitteen asettaminen epäonnistui",
-			"deleteAccountFailed": "Tilin poistopyynnön lähetys epäonnistui"
+			"deleteAccountFailed": "Tilin poistopyynnön lähetys epäonnistui",
+			"loadWishlistFailed": "Toivelistaasi ei voitu ladata.",
+			"removeWishlistItemFailed": "Tuotetta ei voitu poistaa. Yritä uudelleen."
 		},
 		"login": {
 			"title": "Tervetuloa takaisin",
@@ -301,7 +303,8 @@
 			"overview": "Yleiskatsaus",
 			"orders": "Tilaukset",
 			"addresses": "Osoitteet",
-			"settings": "Asetukset"
+			"settings": "Asetukset",
+			"wishlist": "Toivelista"
 		},
 		"overview": {
 			"welcome": "Tervetuloa takaisin, {name}",
@@ -397,6 +400,15 @@
 		"unavailable": {
 			"title": "Tiliä ei voitu ladata",
 			"body": "Kauppa on tilapäisesti poissa käytöstä. Päivitä sivu tai yritä hetken kuluttua uudelleen."
+		},
+		"wishlist": {
+			"title": "Toivelistani",
+			"empty": "Toivelistasi on tyhjä.",
+			"emptyHint": "Selailun aikana tallentamasi tuotteet näkyvät tässä.",
+			"savedOn": "Tallennettu {date}",
+			"addToBag": "Lisää ostoskoriin",
+			"remove": "Poista",
+			"signInRequired": "Kirjaudu sisään nähdäksesi toivelistasi."
 		}
 	},
 	"checkout": {

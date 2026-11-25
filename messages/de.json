@@ -246,7 +246,9 @@
 			"updateAddressFailed": "Adresse konnte nicht aktualisiert werden",
 			"deleteAddressFailed": "Adresse konnte nicht gelöscht werden",
 			"setDefaultAddressFailed": "Standardadresse konnte nicht festgelegt werden",
-			"deleteAccountFailed": "Löschanfrage für das Konto konnte nicht gesendet werden"
+			"deleteAccountFailed": "Löschanfrage für das Konto konnte nicht gesendet werden",
+			"loadWishlistFailed": "Deine Wunschliste konnte nicht geladen werden.",
+			"removeWishlistItemFailed": "Dieser Artikel konnte nicht entfernt werden. Bitte versuche es erneut."
 		},
 		"login": {
 			"title": "Willkommen zurück",
@@ -301,7 +303,8 @@
 			"overview": "Übersicht",
 			"orders": "Bestellungen",
 			"addresses": "Adressen",
-			"settings": "Einstellungen"
+			"settings": "Einstellungen",
+			"wishlist": "Wunschliste"
 		},
 		"overview": {
 			"welcome": "Willkommen zurück, {name}",
@@ -397,6 +400,15 @@
 		"unavailable": {
 			"title": "Ihr Konto konnte nicht geladen werden",
 			"body": "Der Shop ist vorübergehend nicht verfügbar. Aktualisieren Sie die Seite oder versuchen Sie es in Kürze erneut."
+		},
+		"wishlist": {
+			"title": "Meine Wunschliste",
+			"empty": "Deine Wunschliste ist leer.",
+			"emptyHint": "Produkte, die du beim Stöbern speicherst, erscheinen hier.",
+			"savedOn": "Gespeichert am {date}",
+			"addToBag": "In den Warenkorb",
+			"remove": "Entfernen",
+			"signInRequired": "Melde dich an, um deine Wunschliste zu sehen."
 		}
 	},
 	"checkout": {

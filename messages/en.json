@@ -163,7 +163,7 @@
 		"wishlist": {
 			"title": "My wishlist",
 			"description": "Products you saved while shopping.",
-			"empty": "Your wishlist is empty.",
+			"empty": "Your wishlist is empty. Save a product from its page to see it here.",
 			"remove": "Remove",
 			"removedNotice": "Item removed",
 			"updateFailed": "Could not update your wishlist. Try again.",

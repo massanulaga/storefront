@@ -246,7 +246,9 @@
 			"updateAddressFailed": "Échec de la mise à jour de l'adresse",
 			"deleteAddressFailed": "Échec de la suppression de l'adresse",
 			"setDefaultAddressFailed": "Échec de la définition de l'adresse par défaut",
-			"deleteAccountFailed": "Échec de la demande de suppression du compte"
+			"deleteAccountFailed": "Échec de la demande de suppression du compte",
+			"loadWishlistFailed": "Nous n'avons pas pu charger votre liste de souhaits.",
+			"removeWishlistItemFailed": "Nous n'avons pas pu retirer cet article. Veuillez réessayer."
 		},
 		"login": {
 			"title": "Bon retour",
@@ -301,7 +303,8 @@
 			"overview": "Aperçu",
 			"orders": "Commandes",
 			"addresses": "Adresses",
-			"settings": "Paramètres"
+			"settings": "Paramètres",
+			"wishlist": "Liste de souhaits"
 		},
 		"overview": {
 			"welcome": "Bon retour, {name}",
@@ -397,6 +400,15 @@
 		"unavailable": {
 			"title": "Impossible de charger votre compte",
 			"body": "La boutique est temporairement indisponible. Actualisez la page ou réessayez dans un instant."
+		},
+		"wishlist": {
+			"title": "Ma liste de souhaits",
+			"empty": "Votre liste de souhaits est vide.",
+			"emptyHint": "Les produits que vous enregistrez pendant vos achats apparaissent ici.",
+			"savedOn": "Enregistré le {date}",
+			"addToBag": "Ajouter au panier",
+			"remove": "Retirer",
+			"signInRequired": "Connectez-vous pour voir votre liste de souhaits."
 		}
 	},
 	"checkout": {

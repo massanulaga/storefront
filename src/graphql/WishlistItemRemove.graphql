@@ -1,0 +1,9 @@
+mutation WishlistItemRemove($variantId: ID!) {
+	wishlistItemRemove(variantId: $variantId) {
+		errors {
+			field
+			message
+			code
+		}
+	}
+}

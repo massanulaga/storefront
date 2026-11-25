@@ -9,6 +9,7 @@ import {
 	AccountAddressDeleteDocument,
 	AccountSetDefaultAddressDocument,
 	AccountRequestDeletionDocument,
+	WishlistItemRemoveDocument,
 	type AddressInput,
 	type CountryCode,
 	AddressTypeEnum,
@@ -87,6 +88,19 @@ export async function createAddress(formData: FormData): Promise<AccountActionRe
 		return errors[0].message
 			? { success: false, error: errors[0].message }
 			: { success: false, errorKey: "createAddressFailed" };
+	}
+
+	revalidateAccountLayout();
+	return { success: true };
+}
+
+export async function removeWishlistItem(variantId: string): Promise<AccountActionResult> {
+	const result = await mutate(WishlistItemRemoveDocument, {
+		variables: { variantId },
+	});
+
+	if (!result.ok || (result.data.wishlistItemRemove?.errors.length ?? 0) > 0) {
+		return { success: false, errorKey: "removeWishlistItemFailed" };
 	}
 
 	revalidateAccountLayout();

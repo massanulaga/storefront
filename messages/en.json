@@ -37,7 +37,7 @@
 			"save": "Save",
 			"saved": "Saved",
 			"savedNotice": "Saved to wishlist",
-			"updateFailed": "Could not update your wishlist. Try again."
+			"updateFailed": "Couldn't save. Your wishlist didn't update. Check your connection and try again."
 		},
 		"addToBag": "Add to bag",
 		"adding": "Adding...",
@@ -162,11 +162,11 @@
 	"account": {
 		"wishlist": {
 			"title": "My wishlist",
-			"description": "Products you saved while shopping.",
+			"description": "Products you saved. They stay here across visits, separate from your cart.",
 			"empty": "Your wishlist is empty. Save a product from its page to see it here.",
 			"remove": "Remove",
-			"removedNotice": "Item removed",
-			"updateFailed": "Could not update your wishlist. Try again.",
+			"removedNotice": "Item removed. The product is no longer on your wishlist. You can save it again from its page.",
+			"updateFailed": "Couldn't update. Your wishlist didn't update. Check your connection and try again.",
 			"signInRequired": "Sign in to use your wishlist."
 		},
 		"metadata": {

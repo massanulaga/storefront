@@ -246,7 +246,9 @@
 			"updateAddressFailed": "住所の更新に失敗しました",
 			"deleteAddressFailed": "住所の削除に失敗しました",
 			"setDefaultAddressFailed": "既定の住所の設定に失敗しました",
-			"deleteAccountFailed": "アカウント削除のリクエストに失敗しました"
+			"deleteAccountFailed": "アカウント削除のリクエストに失敗しました",
+			"loadWishlistFailed": "ウィッシュリストを読み込めませんでした。",
+			"removeWishlistItemFailed": "このアイテムを削除できませんでした。もう一度お試しください。"
 		},
 		"login": {
 			"title": "おかえりなさい",
@@ -301,7 +303,8 @@
 			"overview": "概要",
 			"orders": "注文",
 			"addresses": "住所",
-			"settings": "設定"
+			"settings": "設定",
+			"wishlist": "ウィッシュリスト"
 		},
 		"overview": {
 			"welcome": "おかえりなさい、{name} さん",
@@ -397,6 +400,15 @@
 		"unavailable": {
 			"title": "アカウントを読み込めません",
 			"body": "ストアは一時的に利用できません。ページを更新するか、しばらくしてからお試しください。"
+		},
+		"wishlist": {
+			"title": "マイウィッシュリスト",
+			"empty": "ウィッシュリストは空です。",
+			"emptyHint": "ショッピング中に保存した商品がここに表示されます。",
+			"savedOn": "{date} に保存",
+			"addToBag": "バッグに追加",
+			"remove": "削除",
+			"signInRequired": "ウィッシュリストを表示するにはサインインしてください。"
 		}
 	},
 	"checkout": {

@@ -77,6 +77,12 @@
 			"previous": "Previous image",
 			"next": "Next image",
 			"counter": "{current} / {total}"
+		},
+		"wishlist": {
+			"save": "Save",
+			"saved": "Saved",
+			"savedNotice": "Saved to wishlist",
+			"updateFailed": "Couldn't save. Your wishlist didn't update. Check your connection and try again."
 		}
 	},
 	"plp": {
@@ -246,7 +252,9 @@
 			"updateAddressFailed": "Failed to update address",
 			"deleteAddressFailed": "Failed to delete address",
 			"setDefaultAddressFailed": "Failed to set default address",
-			"deleteAccountFailed": "Failed to request account deletion"
+			"deleteAccountFailed": "Failed to request account deletion",
+			"loadWishlistFailed": "We could not load your wishlist.",
+			"removeWishlistItemFailed": "We could not remove this item. Please try again."
 		},
 		"login": {
 			"title": "Welcome Back",
@@ -301,7 +309,8 @@
 			"overview": "Overview",
 			"orders": "Orders",
 			"addresses": "Addresses",
-			"settings": "Settings"
+			"settings": "Settings",
+			"wishlist": "Wishlist"
 		},
 		"overview": {
 			"welcome": "Welcome back, {name}",
@@ -397,6 +406,15 @@
 		"unavailable": {
 			"title": "Unable to load your account",
 			"body": "The store is temporarily unavailable. Refresh the page or try again in a moment."
+		},
+		"wishlist": {
+			"title": "My wishlist",
+			"empty": "Your wishlist is empty.",
+			"emptyHint": "Products you save while shopping show up here.",
+			"savedOn": "Saved on {date}",
+			"addToBag": "Add to bag",
+			"remove": "Remove",
+			"signInRequired": "Sign in to see your wishlist."
 		}
 	},
 	"checkout": {

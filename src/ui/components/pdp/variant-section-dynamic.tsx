@@ -12,6 +12,9 @@ import { AddToCart } from "./add-to-cart";
 import { NonMatrixBuyBox } from "./non-matrix-buy-box";
 import { VariantSelectionSection } from "./variant-selection";
 import { StickyBar } from "./sticky-bar";
+import { WishlistToggle } from "./wishlist-toggle";
+import { getAccountAuthState } from "@/app/(storefront)/[locale]/[channel]/(main)/account/get-current-user";
+import { getSavedVariantIds } from "@/lib/account/get-wishlist";
 import { Badge } from "@/ui/components/ui/badge";
 import { SaleBadge } from "@/ui/components/ui/sale-label";
 import { resolveSelectedVariantId, type Product } from "./gallery-utils";
@@ -41,7 +44,7 @@ export async function VariantSectionDynamic({
 	const { variant: variantParam, sku: skuParam } = await searchParams;
 	const intlLocale = resolveLocaleFromSlug(localeSlug).bcp47;
 
-	const [t, content, currency, variantResult] = await Promise.all([
+	const [t, content, currency, variantResult, authState] = await Promise.all([
 		getTranslations({ locale: localeSlug, namespace: "pdp" }),
 		getStorefrontContent(channel, localeSlug),
 		resolveChannelCurrency(channel),
@@ -49,6 +52,7 @@ export async function VariantSectionDynamic({
 			variantId: variantParam,
 			sku: skuParam,
 		}),
+		getAccountAuthState(),
 	]);
 
 	const { variants, totalCount, overBudget, strategy } = variantResult;
@@ -61,6 +65,8 @@ export async function VariantSectionDynamic({
 
 	const selectedVariantID = resolveSelectedVariantId(productWithVariants, variantParam);
 	const selectedVariant = variants.find(({ id }) => id === selectedVariantID);
+
+	const wishlistVariantIds = authState.status === "authenticated" ? await getSavedVariantIds() : null;
 
 	const isAvailable =
 		strategy !== "matrix"
@@ -177,6 +183,14 @@ export async function VariantSectionDynamic({
 					secureCheckoutLabel={secureCheckoutLabel}
 					freeShippingTrustLabel={freeShippingTrustLabel}
 				/>
+
+				{wishlistVariantIds && selectedVariantID && (
+					<WishlistToggle
+						key={selectedVariantID}
+						variantId={selectedVariantID}
+						initiallySaved={wishlistVariantIds.includes(selectedVariantID)}
+					/>
+				)}
 
 				<StickyBar productName={product.name} price={price} show={!isAddToCartDisabled} />
 			</form>

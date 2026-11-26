@@ -1,0 +1,16 @@
+query WishlistItems {
+	wishlist {
+		id
+		createdAt
+		variant {
+			id
+			name
+			sku
+			product {
+				id
+				name
+				slug
+			}
+		}
+	}
+}

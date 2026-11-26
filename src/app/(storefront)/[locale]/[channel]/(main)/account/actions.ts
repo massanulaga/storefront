@@ -9,12 +9,14 @@ import {
 	AccountAddressDeleteDocument,
 	AccountSetDefaultAddressDocument,
 	AccountRequestDeletionDocument,
+	WishlistItemRemoveDocument,
 	type AddressInput,
 	type CountryCode,
 	AddressTypeEnum,
 } from "@/gql/graphql";
 import { mutate } from "@/lib/saleor";
 import { getFormString, getFormStringOptional } from "@/ui/components/account/form-utils";
+import { getAccountAuthState } from "./get-current-user";
 import type { AccountActionResult } from "@/ui/components/account/account-action-result";
 
 export async function updateProfile(formData: FormData): Promise<AccountActionResult> {
@@ -87,6 +89,24 @@ export async function createAddress(formData: FormData): Promise<AccountActionRe
 		return errors[0].message
 			? { success: false, error: errors[0].message }
 			: { success: false, errorKey: "createAddressFailed" };
+	}
+
+	revalidateAccountLayout();
+	return { success: true };
+}
+
+export async function removeWishlistItem(variantId: string): Promise<AccountActionResult> {
+	const auth = await getAccountAuthState();
+	if (auth.status !== "authenticated") {
+		return { success: false, errorKey: "removeWishlistItemFailed" };
+	}
+
+	const result = await mutate(WishlistItemRemoveDocument, {
+		variables: { variantId },
+	});
+
+	if (!result.ok || (result.data.wishlistItemRemove?.errors.length ?? 0) > 0) {
+		return { success: false, errorKey: "removeWishlistItemFailed" };
 	}
 
 	revalidateAccountLayout();

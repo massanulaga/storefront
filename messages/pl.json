@@ -35,6 +35,7 @@
 	"pdp": {
 		"addToBag": "Dodaj do koszyka",
 		"adding": "Dodawanie…",
+		"inStock": "Na stanie",
 		"outOfStock": "Brak w magazynie",
 		"selectOptions": "Wybierz opcje",
 		"buyBox": {

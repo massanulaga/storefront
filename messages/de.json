@@ -35,6 +35,7 @@
 	"pdp": {
 		"addToBag": "In die Tasche",
 		"adding": "Wird hinzugefügt…",
+		"inStock": "Auf Lager",
 		"outOfStock": "Nicht auf Lager",
 		"selectOptions": "Optionen wählen",
 		"buyBox": {

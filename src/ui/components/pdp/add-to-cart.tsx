@@ -9,6 +9,8 @@ import { Button } from "@/ui/components/ui/button";
 import { DiscountPercentLabel } from "@/ui/components/ui/sale-label";
 import { cn } from "@/lib/utils";
 
+import { getStockLineState } from "./stock-line";
+
 interface AddToCartProps {
 	price: string;
 	compareAtPrice?: string | null;
@@ -69,15 +71,33 @@ export function AddToCart({
 	secureCheckoutLabel,
 	freeShippingTrustLabel,
 }: AddToCartProps) {
+	const t = useTranslations("pdp");
+	const stockLine = getStockLineState({ disabled, disabledReason });
+
 	return (
 		<div className="space-y-4">
-			<div className="flex items-baseline gap-3">
-				<span className="text-2xl font-semibold tabular-nums tracking-tight">{price}</span>
-				{compareAtPrice && (
-					<>
-						<span className="text-lg tabular-nums text-muted-foreground line-through">{compareAtPrice}</span>
-						{discountPercent ? <DiscountPercentLabel percent={discountPercent} /> : null}
-					</>
+			<div className="space-y-1">
+				<div className="flex items-baseline gap-3">
+					<span className="text-2xl font-semibold tabular-nums tracking-tight">{price}</span>
+					{compareAtPrice && (
+						<>
+							<span className="text-lg tabular-nums text-muted-foreground line-through">
+								{compareAtPrice}
+							</span>
+							{discountPercent ? <DiscountPercentLabel percent={discountPercent} /> : null}
+						</>
+					)}
+				</div>
+				{stockLine && (
+					<p
+						className={cn(
+							"text-sm font-medium",
+							stockLine === "in-stock" ? "text-success" : "text-muted-foreground",
+						)}
+						aria-live="polite"
+					>
+						{stockLine === "in-stock" ? t("inStock") : t("outOfStock")}
+					</p>
 				)}
 			</div>
 

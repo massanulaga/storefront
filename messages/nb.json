@@ -35,6 +35,7 @@
 	"pdp": {
 		"addToBag": "Legg i handlekurv",
 		"adding": "Legger til…",
+		"inStock": "På lager",
 		"outOfStock": "Utsolgt",
 		"selectOptions": "Velg alternativer",
 		"buyBox": {

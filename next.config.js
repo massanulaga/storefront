@@ -66,7 +66,10 @@ const config = {
 
 	// Next.js 16.3 — prefetch one reusable loading shell per route (not per link).
 	// See: https://nextjs.org/blog/next-16-3-instant-navigations
-	partialPrefetching: true,
+	// Off until Next.js ships the fix for vercel/next.js#100621 (fixed in #100622, 16.5 canary): with it on, a
+	// "use server" function with bound args (the header SearchBar) leaves a cache read open and server-rendered
+	// pages under /[locale]/[channel] never finish responding on 16.4.5.
+	partialPrefetching: false,
 
 	// Named cacheLife tiers for `"use cache"` — see src/lib/saleor/cache/life-profiles.ts
 	cacheLife: paperCacheLifeProfiles,
